@@ -11,7 +11,7 @@ const board = [
   { role: "Presidente", name: "Janderson Tameirão", text: "Liderança técnica e articulação institucional entre empresas, poder público, mercado e comunidade acadêmica." },
   { role: "Vice-Presidente", name: "Juliana Cardoso", text: "Experiência em licenciamento ambiental e cultural, comunidades tradicionais, patrimônio e educação patrimonial." },
   { role: "Secretário", name: "Diogo de Cerqueira", text: "Atuação em avaliação de impacto, salvamento arqueológico, patrimônio imaterial e gestão do patrimônio cultural." },
-  { role: "Tesoureira", name: "Clarisse Callegari Jacques", text: "Experiência em arqueologia, gestão de projetos, conservação, educação patrimonial e patrimônio cultural." },
+  { role: "Tesoureiro", name: "Almir Bezerra", text: "Experiência em arqueologia, gestão de projetos, conservação, educação patrimonial e patrimônio cultural." },
 ];
 
 export default function AboutPage() {
