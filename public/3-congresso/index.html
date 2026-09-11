@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="3º Congresso Anual da ABAP — Licenciamento Ambiental & Patrimônio Cultural. 8 e 9 de outubro de 2026, Brasília. Inscrições pelo Sympla.">
+<title>3º Congresso Anual ABAP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,500;1,700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --amber:#f7a617; --orange:#ca4621; --wine:#86171f; --silver:#e4e4e4;
+    --black:#0b0908; --panel:#121010; --card:#1a1614; --line:#2b2320;
+    --txt:#efe9e5; --muted:#bcafa7;
+    --grad:linear-gradient(115deg,#86171f 0%,#ca4621 52%,#f7a617 118%);
+    --maxw:1180px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Montserrat',sans-serif;color:var(--txt);background:var(--black);line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+  a{text-decoration:none;color:inherit}
+  img{max-width:100%;display:block}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 26px}
+  section{padding:110px 0;position:relative}
+  h1,h2,h3{font-weight:800;line-height:1.08;letter-spacing:-.02em}
+
+  .kicker{display:flex;align-items:center;gap:12px;font-size:12px;letter-spacing:.32em;text-transform:uppercase;font-weight:700;color:var(--amber);margin-bottom:20px}
+  .kicker::before{content:"";width:34px;height:1px;background:linear-gradient(90deg,var(--orange),transparent)}
+  .center .kicker{justify-content:center}
+  .center .kicker::after{content:"";width:34px;height:1px;background:linear-gradient(90deg,transparent,var(--orange))}
+  .title{font-size:clamp(30px,4.6vw,50px);text-transform:uppercase}
+  .title em{font-style:normal;color:var(--orange)}
+  .lead{color:var(--muted);max-width:640px;font-size:16.5px;font-weight:400;margin-top:16px}
+  .center{text-align:center}.center .lead{margin-inline:auto}
+
+  .btn{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:13.5px;padding:16px 32px;border-radius:2px;cursor:pointer;border:none;transition:.3s cubic-bezier(.2,.7,.3,1);font-family:inherit;text-transform:uppercase;letter-spacing:.12em}
+  .btn-p{background:var(--grad);color:#fff;background-size:160% 160%}
+  .btn-p:hover{transform:translateY(-2px);box-shadow:0 16px 34px rgba(202,70,33,.4);background-position:100% 0}
+  .btn-o{background:transparent;color:var(--amber);border:1px solid rgba(247,166,23,.5)}
+  .btn-o:hover{background:var(--amber);color:var(--black);border-color:var(--amber)}
+  .btn-g{background:rgba(255,255,255,.06);color:#fff;border:1px solid rgba(255,255,255,.18)}
+  .btn-g:hover{background:rgba(255,255,255,.13);border-color:rgba(255,255,255,.35)}
+  .arrow{width:16px;height:8px;flex:none}
+
+  /* brand diamond motif */
+  .mark{color:var(--orange)}
+  .mark svg{display:block}
+  .wm{position:absolute;pointer-events:none;color:var(--orange);opacity:.05;z-index:0}
+
+  /* reveal */
+  .rv{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.3,1)}
+  .rv.in{opacity:1;transform:none}
+
+  /* NAV */
+  header{position:sticky;top:0;z-index:80;background:rgba(11,9,8,.72);backdrop-filter:blur(14px);border-bottom:1px solid transparent;transition:.3s}
+  header.scrolled{background:rgba(11,9,8,.94);border-bottom-color:var(--line)}
+  nav{display:flex;align-items:center;justify-content:space-between;height:80px}
+  .logo-nav{height:42px;transition:.3s}
+  .nav-links{display:flex;gap:30px;align-items:center}
+  .nav-links a{color:#d3cac5;font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;transition:.2s;position:relative}
+  .nav-links a:not(.btn)::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:1.5px;background:var(--amber);transition:.3s}
+  .nav-links a:not(.btn):hover{color:#fff}.nav-links a:not(.btn):hover::after{width:100%}
+  .nav-links .btn{padding:12px 22px;font-size:12px}
+  .burger{display:none;background:none;border:none;color:#fff;font-size:24px;cursor:pointer}
+
+  /* HERO */
+  .hero{min-height:94vh;display:flex;align-items:center;position:relative;background:radial-gradient(ellipse 60% 50% at 78% 26%,rgba(202,70,33,.32),transparent 60%),radial-gradient(ellipse 50% 40% at 8% 90%,rgba(247,166,23,.14),transparent 55%),var(--black)}
+  .hero::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(255,255,255,.012) 3px);pointer-events:none}
+  .hero .wrap{position:relative;z-index:3;width:100%}
+  .hero-motif{position:absolute;right:-8%;top:50%;transform:translateY(-50%);width:min(52vw,640px);color:var(--orange);opacity:.13;z-index:1}
+  .badge{display:inline-flex;gap:11px;align-items:center;border:1px solid rgba(247,166,23,.35);color:var(--amber);padding:9px 18px;border-radius:2px;font-size:11.5px;font-weight:700;margin-bottom:30px;letter-spacing:.18em;text-transform:uppercase;background:rgba(247,166,23,.05)}
+  .hero h1{font-size:clamp(44px,8.5vw,96px);font-weight:900;text-transform:uppercase;letter-spacing:-.03em}
+  .hero h1 .n{color:var(--orange)}
+  .hero .tema{display:block;font-size:clamp(15px,2.3vw,23px);font-weight:500;font-style:italic;color:var(--silver);margin-top:20px;letter-spacing:0;text-transform:none;max-width:640px}
+  .hero p{font-size:16.5px;color:var(--muted);max-width:540px;margin:24px 0 38px;font-weight:400}
+  .hero-cta{display:flex;gap:16px;flex-wrap:wrap}
+  .meta{display:flex;gap:0;flex-wrap:wrap;margin-top:60px;border-top:1px solid var(--line)}
+  .meta div{padding:26px 40px 4px 0;margin-right:40px;border-right:1px solid var(--line)}
+  .meta div:last-child{border-right:none}
+  .meta b{display:block;font-size:21px;font-weight:800;color:#fff}
+  .meta small{color:var(--muted);font-size:11.5px;text-transform:uppercase;letter-spacing:.14em}
+
+  /* SOBRE */
+  .sobre-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:64px;align-items:center}
+  .frame{position:relative}
+  .frame img{border-radius:3px;position:relative;z-index:2;filter:saturate(1.05)}
+  .frame::before{content:"";position:absolute;inset:-16px -16px 16px 16px;border:1px solid var(--orange);opacity:.4;border-radius:3px;z-index:1}
+  .stats{display:flex;gap:44px;margin-top:34px;flex-wrap:wrap}
+  .stats b{font-size:34px;font-weight:900;color:var(--amber);display:block;line-height:1}
+  .stats small{color:var(--muted);font-size:12.5px;text-transform:uppercase;letter-spacing:.08em}
+
+  /* PROPOSTAS */
+  .props{background:var(--panel)}
+  .grid{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:56px}
+  .g3{grid-template-columns:repeat(3,1fr)}
+  .pc{background:var(--panel);padding:44px 38px;transition:.35s}
+  .pc:hover{background:var(--card)}
+  .pc .num{font-size:14px;font-weight:800;color:var(--orange);letter-spacing:.2em;margin-bottom:24px}
+  .pc h3{font-size:19px;text-transform:uppercase;margin-bottom:12px}
+  .pc p{color:var(--muted);font-size:14.5px;font-weight:400}
+  .pc .mk{margin:22px 0 0;color:var(--orange);opacity:.5}
+
+  /* HOMENAGEADOS */
+  .homen{background:linear-gradient(180deg,var(--black),var(--panel))}
+  .hgrid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:52px;max-width:900px;margin-inline:auto}
+  .hcard{background:var(--card);border:1px solid var(--line);padding:44px 40px;text-align:center;position:relative}
+  .hcard::before{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);width:70px;height:3px;background:var(--grad)}
+  .mono{width:88px;height:88px;margin:10px auto 22px;color:var(--orange)}
+  .hcard h3{font-size:21px;letter-spacing:0}
+  .hcard .role{color:var(--amber);font-size:11.5px;font-weight:700;margin-top:8px;text-transform:uppercase;letter-spacing:.18em}
+  .hcard p{color:var(--muted);font-size:13.5px;margin-top:16px;font-weight:400}
+
+  /* PROGRAMAÇÃO */
+  .tabs{display:flex;gap:0;justify-content:center;margin:44px 0 0;border:1px solid var(--line);max-width:520px;margin-inline:auto}
+  .tab{flex:1;padding:20px 24px;background:transparent;font-weight:800;cursor:pointer;color:var(--muted);transition:.3s;font-family:inherit;text-transform:uppercase;letter-spacing:.08em;text-align:center;line-height:1.3;border:none;font-size:15px}
+  .tab:first-child{border-right:1px solid var(--line)}
+  .tab small{display:block;font-size:10.5px;font-weight:600;letter-spacing:.14em;margin-top:3px;opacity:.8}
+  .tab.active{background:var(--grad);color:#fff}
+  .venue-line{text-align:center;color:var(--muted);font-size:13px;margin:26px 0 40px;letter-spacing:.06em;text-transform:uppercase}
+  .venue-line b{color:var(--amber)}
+  .day{display:none}.day.active{display:block}
+  .slot{display:grid;grid-template-columns:130px 1fr;gap:32px;padding:26px 0;border-bottom:1px solid var(--line)}
+  .slot .time{font-weight:800;color:var(--amber);font-size:14px;white-space:nowrap;letter-spacing:.04em}
+  .slot h4{font-size:16px;text-transform:uppercase;letter-spacing:0;margin-bottom:5px}
+  .slot .q{font-style:italic;color:var(--orange);font-weight:700;font-size:16px}
+  .slot .mod{color:#d3cac5;font-size:13px;margin-top:8px;font-weight:500}
+  .slot .pan{color:var(--muted);font-size:13px;margin-top:4px;font-weight:400}
+  .slot.br{opacity:.62}.slot.br h4{color:var(--amber);font-weight:700}
+
+  /* LOCAIS */
+  .locais{background:var(--panel)}
+  .lgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:52px}
+  .lcard .ph{height:250px}
+  .lcard{overflow:hidden;border:1px solid var(--line);background:var(--card);position:relative}
+  .lcard .ph{height:280px;overflow:hidden;position:relative}
+  .lcard .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(11,9,8,.75))}
+  .lcard .ph img{width:100%;height:100%;object-fit:cover;transition:.7s cubic-bezier(.2,.7,.3,1)}
+  .lcard:hover .ph img{transform:scale(1.07)}
+  .lcard .body{padding:30px 32px}
+  .lcard .k{color:var(--amber);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.18em}
+  .lcard h3{font-size:22px;margin:10px 0;letter-spacing:0}
+  .lcard p{color:var(--muted);font-size:13.5px;font-weight:400}
+
+  /* PATROCINADORES */
+  .patro{background:linear-gradient(180deg,var(--panel),var(--black))}
+  .prow{display:flex;flex-wrap:wrap;gap:18px;justify-content:center;margin-top:40px}
+  .prow+.prow{margin-top:18px}
+  .sp{background:#fff;border:1px solid #e6e2dc;border-radius:5px;display:flex;align-items:center;justify-content:center;transition:.3s;overflow:hidden;flex:0 0 auto;max-width:100%}
+  .p-ouro .sp{height:160px;width:290px;padding:34px}
+  .p-prata .sp{height:126px;width:212px;padding:24px}
+  .p-bronze .sp{height:104px;width:184px;padding:20px}
+  .sp:hover{transform:translateY(-5px);box-shadow:0 18px 38px rgba(0,0,0,.5);border-color:transparent}
+  .sp img{width:100%;height:100%;object-fit:contain}
+  .sp img.zoom,.lg img.zoom{transform:scale(1.65)}
+  .sp .txt{font-weight:800;color:#1a1614;text-transform:uppercase;letter-spacing:.04em;font-size:19px;text-align:center;line-height:1.2}
+  .cotas-cta{text-align:center;margin-top:64px}
+  .cotas-cta p{color:var(--muted);margin-bottom:20px;font-size:15px}
+
+  /* ASSOCIADOS */
+  .assoc{background:var(--black)}
+  .logos{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:50px}
+  .lg{background:#fff;border:1px solid #e6e2dc;border-radius:5px;height:130px;display:flex;align-items:center;justify-content:center;padding:24px 28px;transition:.3s;overflow:hidden}
+  .lg:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(0,0,0,.45);border-color:transparent}
+  .lg img{width:100%;height:100%;object-fit:contain}
+
+  /* INGRESSOS */
+  .tickets{background:linear-gradient(180deg,var(--black),var(--panel))}
+  .pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:56px;align-items:stretch}
+  .plan{background:var(--card);border:1px solid var(--line);padding:42px 36px;display:flex;flex-direction:column;position:relative;transition:.35s}
+  .plan:hover{border-color:rgba(247,166,23,.4)}
+  .plan.pop{border-color:var(--amber);background:linear-gradient(180deg,rgba(247,166,23,.06),var(--card))}
+  .plan.pop::before{content:"Recomendado";position:absolute;top:0;left:50%;transform:translate(-50%,-50%);background:var(--grad);color:#fff;font-size:10.5px;font-weight:800;padding:7px 18px;text-transform:uppercase;letter-spacing:.14em}
+  .plan h3{font-size:16px;text-transform:uppercase;letter-spacing:.06em;color:var(--amber)}
+  .price{font-weight:900;font-size:44px;color:#fff;margin:16px 0 4px;letter-spacing:-.02em}
+  .price small{font-size:13px;font-weight:400;color:var(--muted);letter-spacing:0}
+  .plan ul{list-style:none;margin:26px 0 30px;flex:1}
+  .plan li{padding:12px 0;color:#d6cec9;font-size:13.5px;display:flex;gap:13px;align-items:flex-start;border-bottom:1px solid var(--line);font-weight:400}
+  .plan li .d{width:7px;height:7px;flex:none;margin-top:6px;background:var(--orange);transform:rotate(45deg)}
+  .plan .btn{width:100%;justify-content:center}
+  .single-plan{max-width:440px;margin:56px auto 0}
+  .single-plan .plan.pop::before{display:none}
+  .single-plan .plan{padding:48px 40px}
+  .parcela{color:var(--muted);font-size:14px;margin:-6px 0 4px}
+  .simpla-note{text-align:center;margin-top:40px;color:var(--muted);font-size:13px;letter-spacing:.04em}
+
+  /* FINAL */
+  .final{text-align:center;background:radial-gradient(ellipse 60% 60% at 50% 0%,rgba(202,70,33,.32),transparent 60%),var(--black);border-top:1px solid var(--line)}
+  .final h2{font-size:clamp(32px,4.8vw,56px);text-transform:uppercase;max-width:860px;margin:0 auto 18px}
+  .final p{color:var(--muted);max-width:520px;margin:0 auto 38px;font-size:17px;font-weight:400}
+  .final .hero-cta{justify-content:center}
+
+  /* FOOTER */
+  footer{background:#070605;color:var(--muted);padding:64px 0 32px}
+  .fcols{display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;margin-bottom:44px}
+  footer .flogo{height:46px;margin-bottom:20px}
+  footer p{font-size:13px;max-width:300px;font-weight:400;line-height:1.8}
+  footer h4{color:#fff;font-size:12px;margin-bottom:18px;text-transform:uppercase;letter-spacing:.16em}
+  footer ul{list-style:none}footer li{margin-bottom:11px;font-size:13px}
+  footer a:hover{color:var(--amber)}
+  .fbot{border-top:1px solid var(--line);padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:12px;letter-spacing:.03em}
+
+  @media(max-width:960px){
+    section{padding:84px 0}
+    .nav-links{display:none;position:absolute;top:80px;left:0;right:0;background:var(--panel);flex-direction:column;padding:26px;gap:22px;border-bottom:1px solid var(--line)}
+    .nav-links.open{display:flex}.burger{display:block}
+    .sobre-grid,.lgrid,.hgrid{grid-template-columns:1fr;gap:44px}
+    .g3{grid-template-columns:1fr}.p-ouro,.p-prata,.p-bronze{grid-template-columns:repeat(2,1fr)}
+    .logos{grid-template-columns:repeat(4,1fr)}
+    .pgrid{grid-template-columns:1fr;max-width:440px;margin-inline:auto}
+    .fcols{grid-template-columns:1fr 1fr}.hero-motif{opacity:.07}
+  }
+  @media(max-width:560px){
+    .nav-links{display:none;position:absolute;top:80px;left:0;right:0;background:var(--panel);flex-direction:column;padding:26px;gap:22px;border-bottom:1px solid var(--line)}
+    .nav-links.open{display:flex}.burger{display:block}
+    .logos{grid-template-columns:repeat(2,1fr)}
+    .slot{grid-template-columns:1fr;gap:8px}
+    .meta div{border-right:none;padding-right:0;margin-right:0}
+    .fcols{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+
+<!-- reusable brand diamond motif -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="dia" viewBox="0 0 100 100"><g fill="none" stroke="currentColor" stroke-width="4.5" stroke-linejoin="round"><rect x="34" y="34" width="32" height="32" rx="6" transform="rotate(45 50 50)"/><rect x="22" y="22" width="56" height="56" rx="10" transform="rotate(45 50 50)"/><rect x="10" y="10" width="80" height="80" rx="14" transform="rotate(45 50 50)"/></g></symbol></svg>
+
+<header id="hd">
+  <div class="wrap">
+    <nav>
+      <a href="#"><img class="logo-nav" src="/3-congresso/assets/abap-1.png" alt="ABAP"></a>
+      <div class="nav-links" id="menu">
+        <a href="#sobre">O Congresso</a>
+        <a href="#homenageados">Homenageados</a>
+        <a href="#programacao">Programação</a>
+        <a href="#patrocinadores">Patrocinadores</a>
+        <a href="#propostas">Próxima edição</a>
+        <a href="#ingressos" class="btn btn-p">Inscreva-se</a>
+      </div>
+      <button class="burger" onclick="document.getElementById('menu').classList.toggle('open')">☰</button>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <svg class="hero-motif"><use href="#dia"/></svg>
+  <div class="wrap">
+    <span class="badge">3ª Edição — Brasília · Formato Presencial</span>
+    <h1><span class="n">3º</span> Congresso<br>Anual da ABAP</h1>
+    <span class="tema">"Licenciamento Ambiental &amp; Patrimônio Cultural"</span>
+    <p>Dois dias reunindo a comunidade da arqueologia preventiva para discutir a nova legislação, boas práticas e o fortalecimento do setor.</p>
+    <div class="hero-cta">
+      <a href="#ingressos" class="btn btn-p">Garantir meu ingresso <svg class="arrow" viewBox="0 0 16 8" fill="none"><path d="M0 4h14M11 1l4 3-4 3" stroke="currentColor" stroke-width="1.6"/></svg></a>
+      <a href="#programacao" class="btn btn-g">Ver programação</a>
+    </div>
+    <div class="meta">
+      <div><b>08 e 09 OUT</b><small>2026</small></div>
+      <div><b>Sala Tom Jobim</b><small>Ed. Parlamundi · Asa Sul</small></div>
+      <div><b>Brasília · DF</b><small>Presencial · 08h–18h</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE -->
+<section id="sobre">
+  <svg class="wm" style="left:-70px;top:30px;width:200px" width="200" height="200"><use href="#dia"/></svg>
+  <div class="wrap sobre-grid">
+    <div class="rv">
+      <div class="kicker">O Congresso</div>
+      <h2 class="title">Um encontro que <em>transforma</em> o setor</h2>
+      <p class="lead">O 3º Congresso Anual da <b style="color:var(--txt)">Associação Brasileira de Arqueologia Preventiva</b> percorre rotas desde a realidade teórica nas universidades até a prática mais atual dentro da nova legislação vigente, criando bases e boas práticas para toda a comunidade.</p>
+      <div class="stats">
+        <div><b>02</b><small>Dias de evento</small></div>
+        <div><b>+15</b><small>Painelistas e mesas</small></div>
+        <div><b>+20</b><small>Empresas associadas</small></div>
+      </div>
+    </div>
+    <div class="frame rv"><img src="/3-congresso/assets/congresso-abap-2.jpg" alt="Congresso ABAP"></div>
+  </div>
+</section>
+
+<!-- HOMENAGEADOS -->
+<section id="homenageados" class="homen">
+  <div class="wrap center rv">
+    <div class="kicker">Reconhecimento</div>
+    <h2 class="title">Homenageados</h2>
+    <p class="lead">Homenagem a figuras importantes do setor, cujas trajetórias abriram caminho para a arqueologia brasileira.</p>
+  </div>
+  <div class="wrap hgrid rv">
+    <div class="hcard"><svg class="mono"><use href="#dia"/></svg><h3>Profº Ondemar Dias</h3><div class="role">In Memoriam</div><p>Pioneiro da arqueologia brasileira, reconhecido por seu legado científico e institucional.</p></div>
+    <div class="hcard"><svg class="mono"><use href="#dia"/></svg><h3>Profº Marcos Albuquerque</h3><div class="role">Homenageado</div><p>Referência na pesquisa e na formação de gerações de arqueólogos no país.</p></div>
+  </div>
+</section>
+
+<!-- PROGRAMAÇÃO -->
+<section id="programacao">
+  <div class="wrap center rv">
+    <div class="kicker">Agenda oficial</div>
+    <h2 class="title">Programação <em>preliminar</em></h2>
+  </div>
+  <div class="wrap rv">
+    <div class="tabs">
+      <button class="tab active" onclick="showDay(0,this)">Dia 1<small>08 · OUT · QUINTA</small></button>
+      <button class="tab" onclick="showDay(1,this)">Dia 2<small>09 · OUT · SEXTA</small></button>
+    </div>
+    <div class="venue-line">Sala Tom Jobim — <b>Ed. Parlamundi, Asa Sul</b> · 08h às 18h · presencial</div>
+
+    <div class="day active">
+      <div class="slot br"><div class="time">08h – 09h</div><div><h4>Credenciamento</h4></div></div>
+      <div class="slot"><div class="time">09h – 11h</div><div><h4>Assembleia ABAP</h4><div class="mod">Condução: Diretoria da ABAP</div><div class="pan">Avaliação do regimento interno e votação do novo estatuto.</div></div></div>
+      <div class="slot"><div class="time">11h – 12h</div><div><h4>Discussão institucional — mudanças e valores</h4><div class="mod">Condução: Diretoria da ABAP</div><div class="pan">Avanços da ABAP e contribuição para o fortalecimento do setor.</div></div></div>
+      <div class="slot br"><div class="time">12h – 13h30</div><div><h4>Almoço</h4></div></div>
+      <div class="slot"><div class="time">13h30 – 14h</div><div><h4>Abertura oficial do 3º Congresso</h4><div class="mod">Moderador: Janderson Tameirão — Presidente da ABAP</div><div class="pan">Apresentação da temática geral do evento.</div></div></div>
+      <div class="slot"><div class="time">14h – 15h</div><div><span class="q">Mesa 1 — "Após a Nova IN: Perspectivas para o Licenciamento e a Sustentabilidade"</span><div class="mod">Moderador: Diogo Cerqueira — Stratus Arqueologia</div><div class="pan">Painelistas: Dinoelly Soares Alves (IPHAN) · convidado</div></div></div>
+      <div class="slot"><div class="time">15h – 16h</div><div><span class="q">Conferência — "Novas Diretrizes, Novas Práticas: Atualizações do IPHAN para o Setor"</span><div class="pan">Painelistas: Hebert Moura Rêgo (IPHAN) · Erick Lemos Pereira Faustino (IPHAN)</div></div></div>
+      <div class="slot br"><div class="time">16h – 16h20</div><div><h4>Coffee-break</h4></div></div>
+      <div class="slot"><div class="time">16h20 – 17h20</div><div><span class="q">Mesa 3 — "Entre Desafios e Soluções: os Caminhos da Arqueologia Preventiva"</span><div class="mod">Moderador: Almir Bezerra — ANX Arqueologia</div><div class="pan">Painelistas: Lucas Silva (SINTARQ) · Wesley Charles (Hábilis) · Valdir Schwengber (Espaço Arqueologia) · Lilia Guedes (Matis)</div></div></div>
+      <div class="slot"><div class="time">17h20 – 18h</div><div><h4>Encerramento</h4></div></div>
+      <div class="slot br"><div class="time">19h – 21h</div><div><h4>Happy Hour</h4><div class="pan">Terraço do Hotel Saint Moritz — Asa Norte</div></div></div>
+    </div>
+
+    <div class="day">
+      <div class="slot br"><div class="time">08h – 09h</div><div><h4>Credenciamento</h4></div></div>
+      <div class="slot"><div class="time">09h – 10h20</div><div><h4>Homenagens a figuras importantes do setor</h4><div class="pan">Homenageados: Profº Ondemar Dias (in memoriam) · Profº Marcos Albuquerque</div></div></div>
+      <div class="slot br"><div class="time">10h20 – 10h40</div><div><h4>Coffee-break</h4></div></div>
+      <div class="slot"><div class="time">10h40 – 12h</div><div><span class="q">Mesa 1 — "Patrimônio e Território: suas intersecções com o Licenciamento Ambiental"</span><div class="mod">Moderador: Juliana Cardoso — Traços e Ofícios</div><div class="pan">Painelistas: Marina Duque Lacerda (IPHAN) · Elisa Machado Taveira (IPHAN)</div></div></div>
+      <div class="slot br"><div class="time">12h – 13h30</div><div><h4>Almoço</h4></div></div>
+      <div class="slot"><div class="time">13h30 – 15h</div><div><span class="q">Mesa 2 — "Entre a Academia e o Mercado"</span><div class="mod">Moderador: Janderson Tameirão — Arqueoproject</div><div class="pan">Painelistas: Raquel Roldan (UFOPA) · Rosicler Silva (PUC Goiás)</div></div></div>
+      <div class="slot"><div class="time">15h – 16h</div><div><span class="q">Mesa 3 — "Métodos que Transformam a Prática"</span><div class="mod">Moderador: Diogo Cerqueira — Stratus Arqueologia</div><div class="pan">Painelistas: espaço para convidados</div></div></div>
+      <div class="slot br"><div class="time">16h – 16h20</div><div><h4>Coffee-break</h4></div></div>
+      <div class="slot"><div class="time">16h20 – 17h</div><div><span class="q">Mesa 4 — "Sítios Sensíveis: Desafios na Prática"</span><div class="mod">Moderador: Janderson Tameirão — Arqueoproject</div><div class="pan">Painelistas: Paulo Zanettini (Zanettini) · Railson Cotias (Arqueólogos)</div></div></div>
+      <div class="slot"><div class="time">17h – 17h30</div><div><span class="q">Mesa 5 — "Do Debate à Ação"</span><div class="mod">Moderador: Diretoria da ABAP</div><div class="pan">Sistematização das discussões em propostas e encaminhamentos coletivos.</div></div></div>
+      <div class="slot br"><div class="time">17h30 – 18h</div><div><h4>Agradecimentos e encerramento do evento</h4></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCAIS -->
+<section id="locais" class="locais">
+  <div class="wrap center rv">
+    <div class="kicker">Onde acontece &amp; atrações</div>
+    <h2 class="title">Locais &amp; <em>experiências</em></h2>
+  </div>
+  <div class="wrap lgrid rv">
+    <div class="lcard"><div class="ph"><img src="/3-congresso/assets/sala-tom-jobim-3.jpg" alt="Sala Tom Jobim"></div><div class="body"><div class="k">Congresso · 08 e 09 out</div><h3>Sala Tom Jobim</h3><p>Ed. Parlamundi (Templo LBV), Asa Sul — Brasília/DF. Auditório principal das mesas e conferências.</p></div></div>
+    <div class="lcard"><div class="ph"><img src="/3-congresso/assets/terraco-saint-moritz-4.jpg" alt="Terraço Saint Moritz"></div><div class="body"><div class="k">Happy Hour · 08 out · 19h</div><h3>Terraço Hotel Saint Moritz</h3><p>Asa Norte — Brasília/DF. Confraternização com vista para o pôr do sol da capital.</p></div></div>
+    <div class="lcard"><div class="ph"><img src="/3-congresso/assets/bus-party-5.jpg" alt="Bus Party"></div><div class="body"><div class="k">Atração especial · Bus Party</div><h3>Bus Party</h3><p>Ao fim do primeiro dia, um ônibus temático faz o traslado da Sala Tom Jobim até o happy hour no Terraço do Saint Moritz — com muita energia para integrar os participantes pela noite de Brasília.</p></div></div>
+  </div>
+</section>
+
+<!-- PATROCINADORES -->
+<section id="patrocinadores" class="patro">
+  <svg class="wm" style="right:-80px;bottom:40px;width:240px" width="240" height="240"><use href="#dia"/></svg>
+  <div class="wrap center rv">
+    <div class="kicker">Quem apoia</div>
+    <h2 class="title">Patrocinadores</h2>
+    <p class="lead">Empresas que investem no fortalecimento da arqueologia preventiva e tornam o congresso possível.</p>
+  </div>
+  <div class="wrap rv">
+    <div class="prow p-ouro">
+      <div class="sp"><img src="/3-congresso/assets/espaco-arqueologia-6.png" alt="Espaço Arqueologia"></div>
+      <div class="sp"><img src="/3-congresso/assets/stratus-consultoria-7.jpg" alt="Stratus Consultoria"></div>
+    </div>
+    <div class="prow p-prata">
+      <div class="sp"><span class="txt">A.H.<br>Menezes</span></div>
+      <div class="sp"><img src="/3-congresso/assets/anx-engenharia-8.jpg" alt="ANX Engenharia"></div>
+      <div class="sp"><img class="zoom" src="/3-congresso/assets/peruacu-arqueologia-9.jpg" alt="Peruaçu Arqueologia"></div>
+      <div class="sp"><img src="/3-congresso/assets/tracos-e-oficios-10.png" alt="Traços & Ofícios"></div>
+    </div>
+    <div class="prow p-bronze">
+      <div class="sp"><img src="/3-congresso/assets/multicast-arqueologia-11.jpg" alt="Multicast Arqueologia"></div>
+      <div class="sp"><img src="/3-congresso/assets/nossa-arqueo-amazonia-12.jpg" alt="Nossa Arqueo Amazônia"></div>
+    </div>
+    <div class="cotas-cta">
+      <p>Quer associar sua marca ao maior encontro da arqueologia preventiva?</p>
+      <a href="mailto:contato@aabap.com.br?subject=Patrocínio%20-%203º%20Congresso%20ABAP" class="btn btn-o">Quero patrocinar</a>
+    </div>
+  </div>
+</section>
+
+<!-- ASSOCIADOS -->
+<section id="associados" class="assoc">
+  <div class="wrap center rv">
+    <div class="kicker">Nossa rede</div>
+    <h2 class="title">Empresas <em>associadas</em></h2>
+    <p class="lead">Consultorias e empresas que integram a ABAP e constroem o setor.</p>
+  </div>
+  <div class="wrap logos rv">
+    <div class="lg"><img src="/3-congresso/assets/anx-engenharia-8.jpg" alt="ANX"></div>
+    <div class="lg"><img src="/3-congresso/assets/stratus-consultoria-7.jpg" alt="Stratus"></div>
+    <div class="lg"><img src="/3-congresso/assets/zanettini-13.png" alt="Zanettini"></div>
+    <div class="lg"><img src="/3-congresso/assets/arqueologos-14.png" alt="Arqueólogos"></div>
+    <div class="lg"><img src="/3-congresso/assets/habilis-15.png" alt="Hábilis"></div>
+    <div class="lg"><img src="/3-congresso/assets/espaco-arqueologia-6.png" alt="Espaço Arqueologia"></div>
+    <div class="lg"><img src="/3-congresso/assets/tracos-e-oficios-10.png" alt="Traços e Ofícios"></div>
+    <div class="lg"><img src="/3-congresso/assets/arqueoproject-16.png" alt="Arqueoproject"></div>
+    <div class="lg"><img src="/3-congresso/assets/scientia-17.png" alt="Scientia"></div>
+    <div class="lg"><img src="/3-congresso/assets/meandros-18.png" alt="Meandros"></div>
+    <div class="lg"><img src="/3-congresso/assets/preservar-19.png" alt="Preservar"></div>
+    <div class="lg"><img src="/3-congresso/assets/hibrida-20.png" alt="Híbrida"></div>
+    <div class="lg"><img src="/3-congresso/assets/a-lasca-21.png" alt="A Lasca"></div>
+    <div class="lg"><img src="/3-congresso/assets/multicast-arqueologia-11.jpg" alt="Multicast"></div>
+    <div class="lg"><img src="/3-congresso/assets/nossa-arqueo-amazonia-12.jpg" alt="Nossa Arqueo Amazônia"></div>
+    <div class="lg"><img class="zoom" src="/3-congresso/assets/peruacu-arqueologia-9.jpg" alt="Peruaçu"></div>
+    <div class="lg"><img src="/3-congresso/assets/arqueocean-22.png" alt="Arqueocean"></div>
+    <div class="lg"><img src="/3-congresso/assets/arqueogis-23.png" alt="Arqueogis"></div>
+    <div class="lg"><img src="/3-congresso/assets/arqueologika-24.png" alt="Arqueologika"></div>
+  </div>
+</section>
+
+<!-- INGRESSOS -->
+<section id="ingressos" class="tickets">
+  <div class="wrap center rv">
+    <div class="kicker">Inscrições</div>
+    <h2 class="title">Garanta seu <em>ingresso</em></h2>
+    <p class="lead">Inscrições e emissão de ingressos processadas pela plataforma oficial <b style="color:var(--txt)">Sympla</b>. Ingresso único para os dois dias de congresso.</p>
+  </div>
+  <div class="wrap single-plan rv">
+    <div class="plan pop">
+      <h3>Inscrição · 3º Congresso Anual ABAP</h3>
+      <div class="price">R$&nbsp;270<small> ,00</small></div>
+      <div class="parcela">ou em até 12x de R$&nbsp;27,92</div>
+      <ul>
+        <li><span class="d"></span>Acesso aos 2 dias de congresso</li>
+        <li><span class="d"></span>Kit do congressista</li>
+        <li><span class="d"></span>Certificado de participação</li>
+        <li><span class="d"></span>Coffee-breaks inclusos</li>
+        <li><span class="d"></span>Acesso ao Happy Hour</li>
+      </ul>
+      <a href="https://www.sympla.com.br/evento/3-congresso-anual-abap/3574724" target="_blank" rel="noopener" class="btn btn-p">Garantir ingresso no Sympla <svg class="arrow" viewBox="0 0 16 8" fill="none"><path d="M0 4h14M11 1l4 3-4 3" stroke="currentColor" stroke-width="1.6"/></svg></a>
+    </div>
+  </div>
+  <p class="simpla-note">Pagamento e emissão de ingressos processados com segurança pelo Sympla.</p>
+</section>
+
+<!-- FINAL -->
+<section class="final">
+  <div class="wrap rv">
+    <h2>Faça parte do 3º<br>Congresso Anual da ABAP</h2>
+    <p>As vagas presenciais são limitadas. Garanta a sua agora pelo Sympla.</p>
+    <div class="hero-cta">
+      <a href="https://www.sympla.com.br/evento/3-congresso-anual-abap/3574724" target="_blank" rel="noopener" class="btn btn-p">Comprar ingresso no Sympla <svg class="arrow" viewBox="0 0 16 8" fill="none"><path d="M0 4h14M11 1l4 3-4 3" stroke="currentColor" stroke-width="1.6"/></svg></a>
+      <a href="#programacao" class="btn btn-g">Rever programação</a>
+    </div>
+  </div>
+</section>
+
+<!-- PATROCÍNIO PRÓXIMA EDIÇÃO -->
+<section id="propostas" class="props">
+  <div class="wrap center rv">
+    <div class="kicker">Próxima edição</div>
+    <h2 class="title">Patrocine a <em>próxima edição</em></h2>
+    <p class="lead">Sua marca já pensando adiante: garanta uma cota de patrocínio na próxima edição anual do congresso da ABAP e associe-se ao maior encontro da arqueologia preventiva do país.</p>
+  </div>
+  <div class="wrap rv">
+    <div class="grid g3">
+      <div class="pc"><div class="num">COTA OURO</div><h3>Máximo destaque</h3><p>Logo em posição prioritária no site e nos materiais do evento, menção nas aberturas e a maior exposição da marca junto ao público.</p><svg class="mk" width="26" height="26"><use href="#dia"/></svg></div>
+      <div class="pc"><div class="num">COTA PRATA</div><h3>Destaque intermediário</h3><p>Presença da marca no site e nos materiais do congresso, com boa exposição diante dos participantes e convidados.</p><svg class="mk" width="26" height="26"><use href="#dia"/></svg></div>
+      <div class="pc"><div class="num">COTA BRONZE</div><h3>Apoio essencial</h3><p>Sua marca entre os patrocinadores oficiais do congresso, associada ao fortalecimento e à valorização do setor.</p><svg class="mk" width="26" height="26"><use href="#dia"/></svg></div>
+    </div>
+    <div class="center" style="margin-top:48px"><a href="mailto:contato@aabap.com.br?subject=Proposta%20de%20Patroc%C3%ADnio%20-%20Pr%C3%B3xima%20Edi%C3%A7%C3%A3o%20Congresso%20ABAP&body=Empresa%3A%0ARespons%C3%A1vel%3A%0ACota%20de%20interesse%20(Ouro%2FPrata%2FBronze)%3A%0ATelefone%2FE-mail%20para%20contato%3A%0AMensagem%3A" class="btn btn-o">Quero patrocinar a próxima edição</a></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="fcols">
+      <div>
+        <img class="flogo" src="/3-congresso/assets/abap-1.png" alt="ABAP">
+        <p>Associação Brasileira de Arqueologia Preventiva · 3º Congresso Anual · 08 e 09 de outubro de 2026 · Brasília/DF.</p>
+      </div>
+      <div>
+        <h4>Navegação</h4>
+        <ul>
+          <li><a href="#sobre">O Congresso</a></li>
+          <li><a href="#propostas">Propostas</a></li>
+          <li><a href="#homenageados">Homenageados</a></li>
+          <li><a href="#programacao">Programação</a></li>
+          <li><a href="#patrocinadores">Patrocinadores</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Inscrições</h4>
+        <ul>
+          <li><a href="https://www.sympla.com.br/evento/3-congresso-anual-abap/3574724" target="_blank" rel="noopener">Ingressos · Sympla</a></li>
+          <li><a href="#ingressos">Categorias</a></li>
+          <li><a href="mailto:contato@aabap.com.br">contato@aabap.com.br</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="fbot">
+      <span>© 2026 ABAP — Associação Brasileira de Arqueologia Preventiva.</span>
+      <span>"Licenciamento Ambiental &amp; Patrimônio Cultural"</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function showDay(i,el){
+    document.querySelectorAll('.day').forEach((d,x)=>d.classList.toggle('active',x===i));
+    document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+    el.classList.add('active');
+  }
+  document.querySelectorAll('#menu a').forEach(a=>a.addEventListener('click',()=>document.getElementById('menu').classList.remove('open')));
+  const hd=document.getElementById('hd');
+  addEventListener('scroll',()=>hd.classList.toggle('scrolled',scrollY>20));
+  const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+  document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

@@ -36,7 +36,7 @@ export default function CongressPage() {
       <div className="container third-congress-grid">
         <div className="third-number">03</div>
         <div><p className="eyebrow light">Próxima edição</p><h2>3º Congresso da ABAP</h2><p>O próximo congresso terá identidade, programação e inscrições em uma landing page exclusiva.</p></div>
-        <div className="future-link"><ExternalLink size={25} /><strong>Link da landing page</strong><span>Será ativado quando o endereço oficial estiver disponível.</span><span className="future-button" aria-disabled="true">Acessar o 3º Congresso <ArrowRight size={17} /></span></div>
+        <div className="future-link"><ExternalLink size={25} /><strong>Landing page do 3º Congresso</strong><span>Programação completa, locais, patrocinadores e inscrições pelo Sympla.</span><a className="future-button" href="/3-congresso">Acessar o 3º Congresso <ArrowRight size={17} /></a></div>
       </div>
     </section>
 
