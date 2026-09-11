@@ -144,8 +144,18 @@
 
   /* PATROCINADORES */
   .patro{background:linear-gradient(180deg,var(--panel),var(--black))}
-  .prow{display:flex;flex-wrap:wrap;gap:18px;justify-content:center;margin-top:40px}
-  .prow+.prow{margin-top:18px}
+  .prow{display:flex;flex-wrap:wrap;gap:18px;justify-content:center;margin-top:18px}
+  .tier-label{display:flex;align-items:center;justify-content:center;gap:16px;font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.22em;margin-top:52px}
+  .tier-label::before,.tier-label::after{content:"";height:1px;width:46px}
+  .tier-ouro{color:#f7a617}
+  .tier-ouro::before,.tier-ouro::after{background:linear-gradient(90deg,transparent,#f7a617)}
+  .tier-ouro::after{background:linear-gradient(90deg,#f7a617,transparent)}
+  .tier-prata{color:#cfd3d8}
+  .tier-prata::before,.tier-prata::after{background:linear-gradient(90deg,transparent,#cfd3d8)}
+  .tier-prata::after{background:linear-gradient(90deg,#cfd3d8,transparent)}
+  .tier-bronze{color:#c8894e}
+  .tier-bronze::before,.tier-bronze::after{background:linear-gradient(90deg,transparent,#c8894e)}
+  .tier-bronze::after{background:linear-gradient(90deg,#c8894e,transparent)}
   .sp{background:#fff;border:1px solid #e6e2dc;border-radius:5px;display:flex;align-items:center;justify-content:center;transition:.3s;overflow:hidden;flex:0 0 auto;max-width:100%}
   .p-ouro .sp{height:160px;width:290px;padding:34px}
   .p-prata .sp{height:126px;width:212px;padding:24px}
@@ -358,23 +368,26 @@
     <p class="lead">Empresas que investem no fortalecimento da arqueologia preventiva e tornam o congresso possível.</p>
   </div>
   <div class="wrap rv">
+    <div class="tier-label tier-ouro">Patrocinadores Ouro</div>
     <div class="prow p-ouro">
       <div class="sp"><img src="/3-congresso/assets/espaco-arqueologia-6.png" alt="Espaço Arqueologia"></div>
       <div class="sp"><img src="/3-congresso/assets/stratus-consultoria-7.jpg" alt="Stratus Consultoria"></div>
     </div>
+    <div class="tier-label tier-prata">Patrocinadores Prata</div>
     <div class="prow p-prata">
       <div class="sp"><span class="txt">A.H.<br>Menezes</span></div>
       <div class="sp"><img src="/3-congresso/assets/anx-engenharia-8.jpg" alt="ANX Engenharia"></div>
       <div class="sp"><img class="zoom" src="/3-congresso/assets/peruacu-arqueologia-9.jpg" alt="Peruaçu Arqueologia"></div>
       <div class="sp"><img src="/3-congresso/assets/tracos-e-oficios-10.png" alt="Traços & Ofícios"></div>
     </div>
+    <div class="tier-label tier-bronze">Patrocinadores Bronze</div>
     <div class="prow p-bronze">
       <div class="sp"><img src="/3-congresso/assets/multicast-arqueologia-11.jpg" alt="Multicast Arqueologia"></div>
       <div class="sp"><img src="/3-congresso/assets/nossa-arqueo-amazonia-12.jpg" alt="Nossa Arqueo Amazônia"></div>
     </div>
     <div class="cotas-cta">
       <p>Quer associar sua marca ao maior encontro da arqueologia preventiva?</p>
-      <a href="mailto:contato@aabap.com.br?subject=Patrocínio%20-%203º%20Congresso%20ABAP" class="btn btn-o">Quero patrocinar</a>
+      <a href="https://wa.me/5561981389204?text=Ol%C3%A1!%20Tenho%20interesse%20em%20patrocinar%20o%203%C2%BA%20Congresso%20Anual%20da%20ABAP.%20Gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20as%20cotas%20de%20patroc%C3%ADnio." target="_blank" rel="noopener" class="btn btn-o">Quero patrocinar</a>
     </div>
   </div>
 </section>
@@ -459,7 +472,7 @@
       <div class="pc"><div class="num">COTA PRATA</div><h3>Destaque intermediário</h3><p>Presença da marca no site e nos materiais do congresso, com boa exposição diante dos participantes e convidados.</p><svg class="mk" width="26" height="26"><use href="#dia"/></svg></div>
       <div class="pc"><div class="num">COTA BRONZE</div><h3>Apoio essencial</h3><p>Sua marca entre os patrocinadores oficiais do congresso, associada ao fortalecimento e à valorização do setor.</p><svg class="mk" width="26" height="26"><use href="#dia"/></svg></div>
     </div>
-    <div class="center" style="margin-top:48px"><a href="mailto:contato@aabap.com.br?subject=Proposta%20de%20Patroc%C3%ADnio%20-%20Pr%C3%B3xima%20Edi%C3%A7%C3%A3o%20Congresso%20ABAP&body=Empresa%3A%0ARespons%C3%A1vel%3A%0ACota%20de%20interesse%20(Ouro%2FPrata%2FBronze)%3A%0ATelefone%2FE-mail%20para%20contato%3A%0AMensagem%3A" class="btn btn-o">Quero patrocinar a próxima edição</a></div>
+    <div class="center" style="margin-top:48px"><a href="https://wa.me/5561981389204?text=Ol%C3%A1!%20Tenho%20interesse%20em%20patrocinar%20a%20pr%C3%B3xima%20edi%C3%A7%C3%A3o%20do%20Congresso%20Anual%20da%20ABAP.%20Gostaria%20de%20saber%20mais%20sobre%20as%20cotas%20(Ouro%2FPrata%2FBronze)." target="_blank" rel="noopener" class="btn btn-o">Quero patrocinar a próxima edição</a></div>
   </div>
 </section>
 
