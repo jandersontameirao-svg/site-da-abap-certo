@@ -331,7 +331,10 @@ a:focus-visible, summary:focus-visible { outline: 3px solid var(--copper-300); o
 .future-link svg { color: var(--copper-300); }
 .future-link strong { margin-top: 25px; font-family: Georgia, serif; font-size: 1.35rem; font-weight: 500; }
 .future-link > span:not(.future-button) { margin-top: 6px; color: rgb(255 255 255 / 52%); font-size: .79rem; }
-.future-button { display: inline-flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 23px; border-top: 1px solid rgb(255 255 255 / 13%); padding-top: 16px; color: rgb(255 255 255 / 47%); font-size: .82rem; font-weight: 750; cursor: not-allowed; }
+.future-button { display: inline-flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 23px; border-top: 1px solid rgb(255 255 255 / 13%); padding-top: 16px; color: var(--copper-300); font-size: .82rem; font-weight: 750; cursor: pointer; transition: color .16s ease, gap .16s ease; }
+.future-button:hover { color: var(--white); gap: 16px; }
+.future-button svg { transition: transform .16s ease; }
+.future-button:hover svg { transform: translateX(3px); }
 .content-reserve { background: var(--sand-100); padding-block: 28px; }
 .content-reserve .container { display: flex; align-items: center; justify-content: center; gap: 12px; color: var(--slate); font-size: .83rem; text-align: center; }
 .content-reserve p { margin: 0; }

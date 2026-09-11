@@ -19,7 +19,7 @@ const pastEvents = [
 
 export default function CongressPage() {
   return <main><SiteHeader />
-    <InternalHero eyebrow="Congressos ABAP" title="A memória dos encontros que constroem o setor." lead="O site institucional reunirá os conteúdos das duas primeiras edições. O 3º Congresso terá uma landing page própria, acessada por um único link a partir daqui." />
+    <InternalHero eyebrow="Congressos ABAP" title="A memória dos encontros que constroem o setor." lead="O site institucional reunirá os conteúdos das duas primeiras edições. O 3º Congresso já tem uma landing page própria — com programação, locais e inscrições — acessada pelo link nesta página." />
 
     <section className="section congress-archive">
       <div className="container">
@@ -35,7 +35,7 @@ export default function CongressPage() {
     <section className="third-congress-link">
       <div className="container third-congress-grid">
         <div className="third-number">03</div>
-        <div><p className="eyebrow light">Próxima edição</p><h2>3º Congresso da ABAP</h2><p>O próximo congresso terá identidade, programação e inscrições em uma landing page exclusiva.</p></div>
+        <div><p className="eyebrow light">Próxima edição</p><h2>3º Congresso da ABAP</h2><p>08 e 09 de outubro de 2026, em Brasília/DF. Identidade, programação e inscrições reunidas em uma landing page exclusiva.</p></div>
         <div className="future-link"><ExternalLink size={25} /><strong>Landing page do 3º Congresso</strong><span>Programação completa, locais, patrocinadores e inscrições pelo Sympla.</span><a className="future-button" href="/3-congresso">Acessar o 3º Congresso <ArrowRight size={17} /></a></div>
       </div>
     </section>
