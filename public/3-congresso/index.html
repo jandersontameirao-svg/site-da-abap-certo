@@ -111,6 +111,34 @@
   .hcard h3{font-size:21px;letter-spacing:0}
   .hcard .role{color:var(--amber);font-size:11.5px;font-weight:700;margin-top:8px;text-transform:uppercase;letter-spacing:.18em}
   .hcard p{color:var(--muted);font-size:13.5px;margin-top:16px;font-weight:400}
+  .hface{width:118px;height:118px;object-fit:cover;border-radius:50%;margin:10px auto 20px;border:2px solid var(--orange);box-shadow:0 8px 26px rgba(0,0,0,.45)}
+  .hbio-btn{margin-top:22px;display:inline-flex;align-items:center;gap:10px;background:transparent;border:1px solid rgba(247,166,23,.5);color:var(--amber);font-family:inherit;font-weight:700;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;padding:12px 22px;border-radius:2px;cursor:pointer;transition:.3s}
+  .hbio-btn:hover{background:var(--amber);color:var(--black);border-color:var(--amber)}
+  .hbio-btn:hover .arrow{transform:translateX(3px)}
+  .hbio-btn .arrow{transition:transform .2s}
+
+  /* MODAL BIOGRAFIA */
+  .bio-modal{position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center;padding:24px}
+  .bio-modal[hidden]{display:none}
+  .bio-backdrop{position:absolute;inset:0;background:rgba(5,4,4,.78);backdrop-filter:blur(6px)}
+  .bio-panel{position:relative;z-index:1;background:var(--card);border:1px solid var(--line);max-width:760px;width:100%;max-height:88vh;overflow-y:auto;padding:46px 48px 52px;text-align:left;border-radius:3px;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+  .bio-panel::-webkit-scrollbar{width:10px}
+  .bio-panel::-webkit-scrollbar-thumb{background:var(--line);border-radius:6px}
+  .bio-close{position:sticky;top:0;float:right;margin:-14px -16px 0 0;background:var(--panel);border:1px solid var(--line);color:var(--txt);width:38px;height:38px;border-radius:50%;font-size:15px;cursor:pointer;transition:.25s;line-height:1}
+  .bio-close:hover{background:var(--orange);border-color:var(--orange);color:#fff}
+  .bio-head{display:flex;gap:24px;align-items:center;border-bottom:1px solid var(--line);padding-bottom:26px;margin-bottom:8px}
+  .bio-head img{width:110px;height:110px;object-fit:cover;border-radius:50%;border:2px solid var(--orange);flex:none}
+  .bio-head h3{font-size:26px;margin:6px 0 0;letter-spacing:-.01em}
+  .bio-sub{color:var(--muted);font-size:13.5px;margin-top:8px;font-weight:400}
+  .bio-body h4{color:var(--amber);font-size:12.5px;text-transform:uppercase;letter-spacing:.18em;margin:30px 0 12px}
+  .bio-body p{color:#d6cec9;font-size:14px;line-height:1.75;margin-bottom:12px;font-weight:400}
+  .bio-body ul{list-style:none;margin:4px 0 12px}
+  .bio-body li{position:relative;color:#d6cec9;font-size:14px;line-height:1.65;padding:0 0 10px 20px;font-weight:400}
+  .bio-body li::before{content:"";position:absolute;left:0;top:9px;width:7px;height:7px;background:var(--orange);transform:rotate(45deg)}
+  .bio-decade{color:var(--amber);font-weight:800;text-transform:uppercase;letter-spacing:.06em;font-size:12.5px;margin:18px 0 2px}
+  .bio-quote{border-left:3px solid var(--orange);padding-left:20px;font-style:italic;color:#e7ddd6}
+  .bio-quote span{display:block;font-style:normal;color:var(--muted);font-size:12.5px;margin-top:8px}
+  .bio-sub2{color:var(--txt);font-weight:600;margin-top:20px;font-size:13.5px}
 
   /* PROGRAMAÇÃO */
   .tabs{display:flex;gap:0;justify-content:center;margin:44px 0 0;border:1px solid var(--line);max-width:520px;margin-inline:auto}
@@ -225,6 +253,8 @@
     .nav-links{display:none;position:absolute;top:80px;left:0;right:0;background:var(--panel);flex-direction:column;padding:26px;gap:22px;border-bottom:1px solid var(--line)}
     .nav-links.open{display:flex}.burger{display:block}
     .logos{grid-template-columns:repeat(2,1fr)}
+    .bio-panel{padding:34px 24px 40px}
+    .bio-head{flex-direction:column;text-align:center;gap:16px}
     .slot{grid-template-columns:1fr;gap:8px}
     .meta div{border-right:none;padding-right:0;margin-right:0}
     .fcols{grid-template-columns:1fr}
@@ -299,10 +329,90 @@
     <p class="lead">Homenagem a figuras importantes do setor, cujas trajetórias abriram caminho para a arqueologia brasileira.</p>
   </div>
   <div class="wrap hgrid rv">
-    <div class="hcard"><svg class="mono"><use href="#dia"/></svg><h3>Profº Ondemar Dias</h3><div class="role">In Memoriam</div><p>Pioneiro da arqueologia brasileira, reconhecido por seu legado científico e institucional.</p></div>
+    <div class="hcard"><img class="hface" src="/3-congresso/assets/ondemar-dias.jpg" alt="Prof. Ondemar Ferreira Dias Júnior"><h3>Profº Ondemar Dias</h3><div class="role">In Memoriam · 1939–2026</div><p>Historiador e arqueólogo, fundador e Diretor-Presidente do Instituto de Arqueologia Brasileira (IAB). Por mais de seis décadas foi central na consolidação da arqueologia científica no Brasil — do PRONAPA aos Geoglifos do Acre — e na formação de gerações de pesquisadores.</p><button class="hbio-btn" onclick="openBio()">Ver biografia completa <svg class="arrow" viewBox="0 0 16 8" fill="none"><path d="M0 4h14M11 1l4 3-4 3" stroke="currentColor" stroke-width="1.6"/></svg></button></div>
     <div class="hcard"><img class="hphoto" src="/3-congresso/assets/marcos-albuquerque.jpg" alt="Profº Marcos Albuquerque"><h3>Profº Marcos Albuquerque</h3><div class="role">Homenageado</div><p>Arqueólogo e pesquisador com mais de seis décadas dedicadas à preservação do patrimônio arqueológico brasileiro. Pioneiro da Arqueologia Histórica e criador do Laboratório de Arqueologia da UFPE, coordenou diagnósticos, prospecções, resgates e monitoramentos na arqueologia preventiva, formando gerações de profissionais.</p></div>
   </div>
 </section>
+
+<!-- MODAL BIOGRAFIA · ONDEMAR DIAS -->
+<div class="bio-modal" id="bioOndemar" hidden>
+  <div class="bio-backdrop" onclick="closeBio()"></div>
+  <div class="bio-panel" role="dialog" aria-modal="true" aria-labelledby="bioTitle">
+    <button class="bio-close" onclick="closeBio()" aria-label="Fechar biografia">✕</button>
+    <div class="bio-head">
+      <img src="/3-congresso/assets/ondemar-dias.jpg" alt="Prof. Ondemar Ferreira Dias Júnior">
+      <div>
+        <div class="role">In Memoriam · 1939–2026</div>
+        <h3 id="bioTitle">Ondemar Ferreira Dias Júnior</h3>
+        <p class="bio-sub">Historiador e arqueólogo · Fundador e Diretor-Presidente do Instituto de Arqueologia Brasileira (IAB)</p>
+      </div>
+    </div>
+    <div class="bio-body">
+      <h4>Identificação</h4>
+      <p>Ondemar Ferreira Dias Júnior, conhecido publicamente como <b>Ondemar Dias</b>, brasileiro, nasceu em 17 de dezembro de 1939, no bairro de São Cristóvão, Rio de Janeiro, e faleceu em janeiro de 2026. Historiador e arqueólogo, pesquisador, professor e gestor institucional, foi fundador e dirigente histórico do Instituto de Arqueologia Brasileira (IAB), que presidiu como Diretor-Presidente desde 2005. Atuação institucional e científica especialmente vinculada ao IAB, em Belford Roxo — RJ, com residência no Rio de Janeiro — RJ.</p>
+
+      <h4>Formação acadêmica</h4>
+      <ul>
+        <li>Graduação em História pela Universidade do Brasil (atual UFRJ), 1962 — ingresso em 1959.</li>
+        <li>Formação em arqueologia com a pesquisadora francesa Annette Laming-Emperaire; especialização em Pré-História pela UFPR, 1962.</li>
+        <li>Especialização em Técnico de Cerâmica, Instituto Nacional de Tecnologia (INT), 1963.</li>
+        <li>Especialização em Ensino e Pesquisa em Jazidas Cerâmicas, UFPR, 1964 (bolsa CAPES).</li>
+        <li>Doutor em História Social pela UFRJ, 1976, com a tese “Pré-História do Estado do Rio de Janeiro”.</li>
+        <li>Livre-Docente pela UFRJ, 1977; posteriormente Professor Titular do IFCS/UFRJ.</li>
+      </ul>
+
+      <h4>Carreira e trajetória institucional</h4>
+      <p>Na UFRJ foi professor titular de História da América e dirigiu departamentos de Mestrado e Doutorado. Lecionou também na Universidade Santa Úrsula, Gama Filho, Estácio de Sá e Faculdade de Vassouras. Por 64 anos, sua trajetória esteve diretamente associada à consolidação da arqueologia científica no Brasil.</p>
+      <ul>
+        <li>Anos 1950: integrou o grupo de amadores da arqueologia que, sob a gestão de Roldão Pires Brandão, deu origem à Associação Brasileira de Estudos e Pesquisas Arqueológicas (ABEPA).</li>
+        <li>1961: fundou, com outros dissidentes da ABEPA, o Instituto de Arqueologia Brasileira (IAB), que se consolidaria como centro de pesquisa, ensino, documentação, preservação e divulgação.</li>
+        <li>Participou do Programa Nacional de Pesquisas Arqueológicas (PRONAPA), em cooperação com a Smithsonian Institution, na coordenação regional e na sistematização metodológica que firmou as bases científicas da arqueologia brasileira moderna.</li>
+        <li>Foi Diretor de Pesquisas do IAB por mais de trinta anos antes de assumir a presidência.</li>
+        <li>1980: membro fundador da Sociedade de Arqueologia Brasileira (SAB), da qual foi presidente em 1987.</li>
+      </ul>
+
+      <h4>Principais realizações por década</h4>
+      <p class="bio-decade">Década de 1960</p>
+      <p>Participou da fundação do IAB (1961) e, como Diretor de Pesquisas, do processo de consolidação do PRONAPA, contribuindo para a introdução de procedimentos sistemáticos de pesquisa, documentação e análise arqueológica no país.</p>
+      <p class="bio-decade">Década de 1970</p>
+      <p>A partir de 1971, criou e participou de programas de pesquisa em diferentes regiões — arte rupestre, prospecções extensivas e registro de sítios pré-coloniais e históricos — com destaque para os estudos no sítio Boqueirão Soberbo e para o Programa de Pesquisas Arqueológicas no Vale do São Francisco (PROPEVALE). Entre 1971 e 1978, no PROPEVALE, pesquisou as drenagens dos rios Muriaé e Sapucaí (região do “Paraíba Mineiro”), registrando no IPHAN centenas de sítios de Minas Gerais. Integrou o Programa Litoral Fluminense, propondo as tradições arqueológicas Una e Itaipu a partir de sítios como Duna da Boa Vista (Cabo Frio), Duna de Itaipu (Niterói), Corondó, Malhada, Sambaqui da Tarioba, Sítio do Caju e Piaí. Em 1976 instituiu o Programa Grutas Mineiras, incluindo a Gruta do Gentio, em Unaí. Participou de ações de resgate, entre elas a de Salto Grande, no Uruguai, representando o Brasil. Em 1977, designado pelo PRONAPA junto com Franklin Levy, desbravou o território do Acre, descobrindo e registrando os primeiros sítios hoje conhecidos como Geoglifos do Acre.</p>
+      <p class="bio-decade">Década de 1980</p>
+      <p>Deu continuidade às pesquisas em Minas Gerais, Rio de Janeiro e na região amazônica. No Programa Grutas Mineiras, investigou Montes Claros, Varzelândia, Lapa do Barreirinho, Boqueirão Soberbo, Lapa do Zé Preto e Lapa da Várzea de Cima. Participou de fases do PRONAPABA na bacia Amazônica — cursos dos rios Juruá e Solimões e áreas dos lagos Uará, Uarini, Tefé e Coari —, localizando e documentando numerosos sítios.</p>
+      <p class="bio-decade">Década de 1990</p>
+      <p>Prosseguiu com pesquisas em Minas Gerais, na Amazônia e no Rio de Janeiro, com destaque para a Lapa da Várzea de Cima (Varzelândia) e para a Serra do Cabral (identificação de sítios com pinturas rupestres). Atuou no Litoral Fluminense (Guaratiba e Sambaqui da Tarioba). Em 1993 propôs o projeto “Origens da Agricultura”. Passou a atuar também em arqueologia histórica e patrimônio cultural, incluindo Praça XV de Novembro, Engenho do Valqueire, Nossa Senhora da Conceição e Picota da Pavuna.</p>
+      <p class="bio-decade">Década de 2000</p>
+      <p>Ampliou a atuação para arqueologia preventiva, monitoramento, salvamento e educação patrimonial. Com Marcos Zimmermann, criou o Núcleo Tocantinense de Arqueologia (NUTA), em convênio entre o IAB e a UNITINS. Entre os projetos: Saltifens, Saltovia, Projeto Pimenta, Aeroporto Eurico Salles, Projeto Itaguaí, Saltestreito, UHE Estreito, UHE Batalha, UHE Jirau, Gasduc e Gasjap.</p>
+      <p class="bio-decade">Década de 2010</p>
+      <p>Manteve o IAB atuando em pesquisa, arqueologia preventiva, monitoramento e gestão de patrimônio — Arco Metropolitano do Rio de Janeiro, UHE Jirau, UHE Batalha, UHE Estreito, Plansal e Serra do Cabral. A partir de 2015 destacou-se na curadoria de coleções: a de cerca de 1,4 milhão de artefatos que incluiu o Cais do Valongo; as coleções da UHE Samuel (2016); a ampliação da Mina de Corumbá (2017); e o acervo do sítio Antiga Sé (2018), cujos dados foram cruciais para a tese da Drª Jandira Neto. Instituiu formalmente perante o IPHAN um curso de pós-graduação lato sensu em Arqueologia Brasileira, formalizando o ingresso de cerca de cem novos arqueólogos no mercado de trabalho.</p>
+      <p class="bio-decade">Década de 2020</p>
+      <p>Manteve participação em pesquisa e gestão do patrimônio arqueológico: Asilo Barão do Amparo, em Vassouras (2019); Porto de Santos — SP (2020); Monitoramento Arqueológico da Fazenda São Bernardino (2022); e pesquisas no Cemitério de Jurujuba (2023).</p>
+
+      <h4>Dimensão social e legado</h4>
+      <p>A opção por manter a sede do IAB em Belford Roxo, na Baixada Fluminense, aproximou a produção científica de uma população historicamente distante dos circuitos acadêmicos. Dessa escolha derivaram iniciativas de inclusão social pela ciência, com destaque para o Projeto Pesquisador Curumim, voltado à participação de crianças e jovens em situação de vulnerabilidade em atividades de pesquisa, laboratório e curadoria de acervo, além de programas de educação patrimonial e produção editorial. Suas pesquisas devolveram a comunidades locais narrativas de origem e pertencimento — dos Goitacá no Sítio do Caju às populações das grutas mineiras e a contextos da diáspora africana no Rio de Janeiro.</p>
+      <p class="bio-quote">“Acho que a coisa mais importante que a gente está fazendo é, pela primeira vez, a noção da ancestralidade. O que que se deve aos nossos antepassados. Qual é o papel nosso também que seremos ancestrais um dia. Esse vínculo, esse caminho entre o que é ontem, o que é hoje e o que será amanhã, é o fundamental nesse nosso programa.” <span>— Ondemar Dias, 2023, sobre os 20 anos do Projeto Pesquisador Curumim.</span></p>
+      <p>Defensor da circulação gratuita do conhecimento, em momentos de restrição orçamentária aportou recursos pessoais para assegurar a continuidade das atividades e dos projetos sociais do Instituto. Manteve-se em plena atividade intelectual até a última semana de vida, deixando concluídos e inéditos cursos, livros e publicações. O acervo reunido pelo IAB ao longo de sua história é estimado em aproximadamente 4,5 milhões de artefatos arqueológicos.</p>
+
+      <h4>Títulos, membresias e condecorações</h4>
+      <ul>
+        <li>Membro da Associação Brasileira de Estudos e Pesquisas Arqueológicas (ABEPA), 1958–1961.</li>
+        <li>Associado Fundador do Instituto de Arqueologia Brasileira (IAB), 1961–2026.</li>
+        <li>Diretor-Presidente do Instituto de Arqueologia Brasileira (IAB), 2005–2026.</li>
+        <li>Sócio titular do Instituto Histórico e Geográfico Brasileiro (IHGB), 2004–2026.</li>
+        <li>Sócio fundador da Sociedade de Arqueologia Brasileira (SAB), 1980–2026.</li>
+        <li>Titular da cadeira 35 — patroneada pelo historiador José Mattoso Maia Forte — na Academia de Letras e Artes Meritiense, 2017–2026.</li>
+        <li>2023 — Reconhecimento como personalidade de destaque da Baixada Fluminense para o desenvolvimento da Cultura, concedido pelo Instituto de Pesquisas e Análises Históricas e de Ciências Sociais da Baixada Fluminense (IPAHB).</li>
+        <li>2026 — Medalha e Diploma de Mérito Cultural Iguaçuano, concedidos pela Prefeitura de Nova Iguaçu durante as comemorações dos 193 anos do município, recebidos cinco dias antes de seu falecimento.</li>
+      </ul>
+      <p class="bio-sub2">Reconhecimentos obtidos pelo IAB sob a presidência de Ondemar Dias (2005–2026):</p>
+      <ul>
+        <li>2014 — Título de Instituição de Utilidade Pública, concedido pela Câmara Municipal de Belford Roxo (Projeto de Lei nº 1513).</li>
+        <li>2017 — Diploma Heloneida Studart de Cultura, concedido pela Comissão de Cultura da ALERJ.</li>
+        <li>2018 — Certificado de Ponto de Cultura, concedido pela Prefeitura Municipal de Belford Roxo.</li>
+        <li>2018 — Declaração do Acervo Documental do IAB como de Interesse Público e Social (Decreto Federal nº 9.618, de 18 de dezembro de 2018), após parecer aprovado por unanimidade na 85ª Reunião Plenária do CONARQ.</li>
+      </ul>
+    </div>
+  </div>
+</div>
 
 <!-- PROGRAMAÇÃO -->
 <section id="programacao">
@@ -522,6 +632,11 @@
   addEventListener('scroll',()=>hd.classList.toggle('scrolled',scrollY>20));
   const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
   document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+  const bio=document.getElementById('bioOndemar');
+  function openBio(){bio.hidden=false;document.body.style.overflow='hidden';bio.querySelector('.bio-panel').scrollTop=0;}
+  function closeBio(){bio.hidden=true;document.body.style.overflow='';}
+  addEventListener('keydown',e=>{if(e.key==='Escape'&&!bio.hidden)closeBio();});
 </script>
 </body>
 </html>
