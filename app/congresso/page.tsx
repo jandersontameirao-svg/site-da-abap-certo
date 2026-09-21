@@ -4,11 +4,12 @@ import { InternalHero, SiteFooter, SiteHeader } from "@/components/site-shell";
 
 export const metadata: Metadata = { title: "Congressos", description: "Memória dos Congressos da ABAP e acesso ao 3º Congresso." };
 
-const pastEvents = [
+const pastEvents: { edition: string; label: string; text: string; gallery?: string }[] = [
   {
     edition: "1º Congresso da ABAP",
     label: "Memória da primeira edição",
     text: "Área reservada para fotografias, programação, palestrantes, documentos e principais resultados do encontro.",
+    gallery: "/1-congresso",
   },
   {
     edition: "2º Congresso da ABAP",
@@ -27,7 +28,7 @@ export default function CongressPage() {
         <div className="congress-archive-grid">{pastEvents.map((event, index) => <article key={event.edition}>
           <div className="congress-edition"><span>0{index + 1}</span><Images size={25} /></div>
           <p className="eyebrow">{event.label}</p><h3>{event.edition}</h3><p>{event.text}</p>
-          <div className="congress-content-slots"><span><Images size={17} /> Galeria</span><span><FileText size={17} /> Programação e materiais</span></div>
+          <div className="congress-content-slots">{event.gallery ? <a href={event.gallery}><Images size={17} /> Galeria</a> : <span><Images size={17} /> Galeria</span>}<span><FileText size={17} /> Programação e materiais</span></div>
         </article>)}</div>
       </div>
     </section>
