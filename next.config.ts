@@ -8,6 +8,8 @@ const nextConfig: NextConfig = {
       { source: "/3-congresso", destination: "/3-congresso/index.html" },
       // Galeria estática do 1º Congresso servida na URL limpa /1-congresso
       { source: "/1-congresso", destination: "/1-congresso/index.html" },
+      // Galeria estática do 2º Congresso servida na URL limpa /2-congresso
+      { source: "/2-congresso", destination: "/2-congresso/index.html" },
     ];
   },
 };

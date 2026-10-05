@@ -15,6 +15,7 @@ const pastEvents: { edition: string; label: string; text: string; gallery?: stri
     edition: "2º Congresso da ABAP",
     label: "Memória da segunda edição",
     text: "Área reservada para reunir registros, apresentações, notícias, materiais e encaminhamentos da segunda edição.",
+    gallery: "/2-congresso",
   },
 ];
 
